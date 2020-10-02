@@ -1,0 +1,32 @@
+.full {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  margin: 0px;
+  padding: 0px;
+
+  overflow: hidden;
+}
+
+.head, .bottom{
+  width: 100%;
+  height: 10%;
+
+  margin: 0px;
+  padding: 0px;
+
+  overflow: hidden;
+}
+
+.middle{
+  width: 100%;
+  height: 80%;
+
+  margin: 0px;
+  padding: 0px;
+
+  overflow: hidden;
+}

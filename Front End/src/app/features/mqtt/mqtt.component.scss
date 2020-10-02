@@ -1,0 +1,24 @@
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 1%;
+
+  background-color: #1e3371;
+}
+
+.border-mine{
+  width: 100%;
+  height: 100%;
+
+  padding: 2%;
+
+  border: 2px solid #ef8e19;
+  border-radius: 10px;
+
+  color: white;
+}

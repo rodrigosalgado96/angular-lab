@@ -1,0 +1,21 @@
+.background{
+  width: 100%;
+  height: 100%;
+
+  //background: #2039CC;
+
+  background: linear-gradient(0deg, #3255ab 60%, #1e3371 100%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p{
+  margin: 0px;
+  padding: 0px;
+
+  color: white;
+  font-size: 32px;
+  font-family: raider;
+}

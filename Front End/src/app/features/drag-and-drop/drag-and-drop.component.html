@@ -1,0 +1,35 @@
+<div class="background">
+  <div
+    class="drag-list"
+    dragula="drag_test"
+    [(dragulaModel)]="arrayOne"
+    id="source"
+  >
+    <div class="dragable-item" *ngFor="let item of arrayOne">
+      <p>{{ item.name }} ({{ item.id }});</p>
+    </div>
+
+    <div class="ghost-item" *ngIf="!arrayOne.length"></div>
+  </div>
+  <button class="button" (click)="showLogs()">Show Logs</button>
+  <div
+    class="drag-list"
+    dragula="drag_test"
+    [(dragulaModel)]="arrayTwo"
+    id="destination"
+  >
+    <div class="dragable-item" *ngFor="let item of arrayTwo">
+      <p>{{ item.name }} ({{ item.id }});</p>
+    </div>
+
+    <div class="ghost-item" *ngIf="!arrayTwo.length">
+
+    </div>
+  </div>
+</div>
+<div class="foot">
+  Make sure to check out the
+  <a href="https://github.com/bevacqua/dragula#readme"
+    >documentation on GitHub!</a
+  >
+</div>

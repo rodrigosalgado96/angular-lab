@@ -1,0 +1,84 @@
+<div class="background" id="test">
+  <div class="row-wb body-row">
+    <div class="slides" cdkDrag cdkDragBoundary="#test">
+      <drag-handler></drag-handler>
+      <div class="showcase">
+        <img [src]="slides[index].link" [alt]="slides[index].alt" />
+        <div class="selectors">
+          <div
+            class="selector"
+            *ngFor="let selector of slides"
+            (click)="chooseSlide(selector.id)"
+          >
+            <div
+              class="selected"
+              *ngIf="selector.id === activeId"
+              [@inOutSelect]
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-test" cdkDrag cdkDragBoundary="#test">
+      <label>
+        <p>Name</p>
+        <input type="text" placeholder="John" />
+      </label>
+
+      <label>
+        <p>Last Name</p>
+        <input type="text" placeholder="Doe" />
+      </label>
+
+      <label>
+        <p>Email</p>
+        <input type="text" placeholder="john_doe@comau.com" />
+      </label>
+
+      <label>
+        <p>Phone Number</p>
+        <input type="text" placeholder="(99) 9999999" />
+      </label>
+    </div>
+
+    <div class="Angular-Class">
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <app-yes-no-button-group
+          [appDisableControl]="false"
+          formControlName="yesNoAnswer"
+          label="Are you good enough in Angular?"
+        >
+        </app-yes-no-button-group>
+        <button>Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row-wb footer-row">
+    <div class="example-box" cdkDrag cdkDragBoundary="#test">Drag me.</div>
+    <div class="button-card" cdkDrag cdkDragBoundary="#test">
+      <drag-handler></drag-handler>
+      <div class="drop-menu">
+        <button
+          class="primary-button"
+          (click)="toggleActionMenu()"
+          [@dropMenu]="actionMenu ? 'spinIn' : 'spinOut'"
+        >
+          <img src="assets/icons/menu.svg" />
+        </button>
+
+        <div
+          [@dropMenu]="actionMenu ? 'open' : 'closed'"
+          class="dropdown-content"
+        >
+          <div class="buttons" *ngFor="let button of buttonsList">
+            <button class="drop-button">
+              {{ button.content }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

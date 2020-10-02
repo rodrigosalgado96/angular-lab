@@ -1,0 +1,40 @@
+<div class="container-default">
+  <div class="table-contents">
+    <div class="legend">
+      <div class="legend-title">
+        Tempo de Ciclo Atual
+      </div>
+      <div class="legend-body">
+        <div class="legend-info" (click)= "legendAutomaticoToggle()">
+          <div class="legend-icon legend-green"></div>
+          <div [ngClass]="{ strikethrough: !legendAutomatico }">Automatico</div>
+        </div>
+        <div class="legend-info" (click)= "legendSemiAutomaticoToggle()">
+          <div class="legend-icon legend-purple"></div>
+          <div [ngClass]="{ strikethrough: !legendSemiAutomatico }">
+            Semi Automatico
+          </div>
+        </div>
+        <div class="legend-info" (click)= "legendManualToggle()">
+          <div class="legend-icon legend-yellow"></div>
+          <div [ngClass]="{ strikethrough: !legendManual }">Manual</div>
+        </div>
+        <div class="legend-info">
+          <div class="legend-icon legend-yellow-reference"></div>
+          <div>Referência</div>
+        </div>
+      </div>
+    </div>
+    <div class="chart">
+      <canvas
+        #barChartCanvas
+        baseChart
+        [labels]="label"
+        [datasets]="cycleTimeData"
+        [options]="barChartOptions"
+        chartType="bar"
+      >
+      </canvas>
+    </div>
+  </div>
+</div>
