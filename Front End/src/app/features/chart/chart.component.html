@@ -1,21 +1,19 @@
 <div class="container-default">
   <div class="table-contents">
     <div class="legend">
-      <div class="legend-title">
-        Tempo de Ciclo Atual
-      </div>
+      <div class="legend-title">Tempo de Ciclo Atual</div>
       <div class="legend-body">
-        <div class="legend-info" (click)= "legendAutomaticoToggle()">
+        <div class="legend-info" (click)="legendAutomaticoToggle()">
           <div class="legend-icon legend-green"></div>
           <div [ngClass]="{ strikethrough: !legendAutomatico }">Automatico</div>
         </div>
-        <div class="legend-info" (click)= "legendSemiAutomaticoToggle()">
+        <div class="legend-info" (click)="legendSemiAutomaticoToggle()">
           <div class="legend-icon legend-purple"></div>
           <div [ngClass]="{ strikethrough: !legendSemiAutomatico }">
             Semi Automatico
           </div>
         </div>
-        <div class="legend-info" (click)= "legendManualToggle()">
+        <div class="legend-info" (click)="legendManualToggle()">
           <div class="legend-icon legend-yellow"></div>
           <div [ngClass]="{ strikethrough: !legendManual }">Manual</div>
         </div>
@@ -23,6 +21,14 @@
           <div class="legend-icon legend-yellow-reference"></div>
           <div>Referência</div>
         </div>
+      </div>
+      <div class="slider-box">
+        <mat-slide-toggle [(ngModel)]="notifyTelegram" color="primary">
+          <p>Notificações</p>
+        </mat-slide-toggle>
+        <mat-slide-toggle [(ngModel)]="genOm" color="primary">
+          <p>Gerar O.M.</p>
+        </mat-slide-toggle>
       </div>
     </div>
     <div class="chart">
