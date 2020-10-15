@@ -1,5 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+
+import { MAINTENANCE_ORDER } from "src/app/shared/model/om.model";
+import { ManusisService } from "../services/manusis.service";
 import Telegram from "telegram-send-message";
+import { error } from 'console';
 
 @Component({
   selector: "chart-view",
@@ -14,6 +18,21 @@ export class ChartComponent implements OnInit {
   legendAutomatico = true;
   legendSemiAutomatico = true;
   legendManual = true;
+
+  notifyTelegram: boolean = false;
+  genOm: boolean = false;
+
+  om: MAINTENANCE_ORDER = {
+    area_id: 23, //Test Area
+    first_loc_id: 4787,  // Test Location
+    maint_service_type_id: 1,
+    maint_service_nature_id: null,
+    priority: 1,
+    description: "",
+    opened_at: new Date(),
+    scheduled_to: new Date(),
+    est_finish_at: new Date()
+  };
 
   public barChartOptions = {
     responsive: true,
@@ -141,6 +160,8 @@ export class ChartComponent implements OnInit {
     { x: "OP80[A]", y: 29, z: "Automatico", count: 0 },
   ];
 
+  constructor(private omService: ManusisService) {}
+
   ngOnInit() {
     this.hoverBackgroundColor(this.mockedDataOne);
     this.cycleTimeData[1].data = this.mockedDataOne;
@@ -173,7 +194,7 @@ export class ChartComponent implements OnInit {
     let message: string;
     setInterval(() => {
       message = "";
-      random = Math.round(Math.random() * (this.mockedDataOne.length -1));
+      random = Math.round(Math.random() * (this.mockedDataOne.length - 1));
       this.mockedDataOne[random].y = 70 + 70 * Math.random();
       message =
         "A operação <u><b>" +
@@ -184,10 +205,29 @@ export class ChartComponent implements OnInit {
         Math.round(this.mockedDataOne[random].y) +
         "</b></u> segundos.";
       Telegram.setMessage(message);
-      // setTimeout(() => Telegram.send(), 1000);
-    }, 12000);
+      this.om.description = message;
+      if (this.notifyTelegram)
+        setTimeout(() => {
+          Telegram.send();
+        }, 1000); // 1segundo
+      if (this.genOm)
+        setTimeout(() => {
+          // this.postOm(this.om); // comentado para nao criar ordem de serviço
+        }, 1000); // 1segundo
+    }, 10000); //10 segundos
     //--------------------------------------
   }
+
+  //Manussis-----------------------------------------------
+  private postOm(om: MAINTENANCE_ORDER) {
+    this.omService.postOm(om).subscribe(
+      () => console.log("você não é o goku, mas deu certo"),
+      (err) => console.log(err.error.errors)
+    );
+  }
+  //-----------------------------------------------
+
+  //Chart-----------------------------------------------
   legendAutomaticoToggle() {
     this.legendAutomatico = !this.legendAutomatico;
     this.legendChange();
@@ -276,4 +316,5 @@ export class ChartComponent implements OnInit {
     this.getLabel(changedArray);
     this.chartAverage(changedArray);
   }
+  //-----------------------------------------------
 }
