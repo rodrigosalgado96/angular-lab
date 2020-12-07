@@ -2,9 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const bodyParser = require("body-parser");
+const cors = require("cors");
 require("dotenv/config");
 
 app.use(bodyParser.json());
+app.use(cors());
 
 //import routes
 const postsRoute = require("./routes/posts");
@@ -12,8 +14,13 @@ const postsRoute = require("./routes/posts");
 app.use("/posts", postsRoute);
 
 //Routes
-app.get("/", (req, res) => {
-  res.send("We are on home");
+app.get("/", async (req, res) => {
+  try {
+    const connect = await res.send({status: "online"});
+    res.json(connect);
+  } catch (err) {
+    res.json({ message: err });
+  }
 });
 
 //Connect to DB
@@ -25,4 +32,3 @@ mongoose.connect(
 
 //how start listening the server
 app.listen(3000);
-

@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 
-import { MAINTENANCE_ORDER } from "src/app/shared/model/om.model";
+// import { MAINTENANCE_ORDER } from "src/app/shared/model/om.model";
 import { ManusisService } from "../services/manusis.service";
 import Telegram from "telegram-send-message";
-import { error } from 'console';
+import { error } from "console";
 
 @Component({
   selector: "chart-view",
@@ -22,16 +22,17 @@ export class ChartComponent implements OnInit {
   notifyTelegram: boolean = false;
   genOm: boolean = false;
 
-  om: MAINTENANCE_ORDER = {
+  // om: MAINTENANCE_ORDER = {
+  om: any = {
     area_id: 23, //Test Area
-    first_loc_id: 4787,  // Test Location
+    first_loc_id: 4787, // Test Location
     maint_service_type_id: 1,
     maint_service_nature_id: null,
     priority: 1,
     description: "",
     opened_at: new Date(),
     scheduled_to: new Date(),
-    est_finish_at: new Date()
+    est_finish_at: new Date(),
   };
 
   public barChartOptions = {
@@ -219,7 +220,8 @@ export class ChartComponent implements OnInit {
   }
 
   //Manussis-----------------------------------------------
-  private postOm(om: MAINTENANCE_ORDER) {
+  // private postOm(om: MAINTENANCE_ORDER) {
+  private postOm(om: any) {
     this.omService.postOm(om).subscribe(
       () => console.log("você não é o goku, mas deu certo"),
       (err) => console.log(err.error.errors)
