@@ -1,0 +1,13 @@
+<select (change)="selectId($event.target.value)">
+  <option></option>
+  <option *ngFor="let post of posts" [value]="post.id">{{ post.title }}</option>
+</select>
+
+<form [formGroup]="editForm" (submit)="upload()">
+  <label [formGroup]="editForm">
+    New Title
+    <input formControlName="title" />
+  </label>
+
+  <button type="submit">Editar</button>
+</form>

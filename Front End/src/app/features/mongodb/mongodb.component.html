@@ -1,19 +1,29 @@
 <div class="background">
   <div class="control">
-    <div class="add">add-form</div>
-    <div class="update">update-form</div>
-    <div class="delete">delete-form</div>
+    <div class="add">
+      <app-add-form></app-add-form>
+    </div>
+    <div class="update">
+      <app-edit-form [posts]="postsList"></app-edit-form>
+    </div>
+    <div class="delete">
+      <app-delete-form [posts]="postsList"></app-delete-form>
+    </div>
   </div>
   <div class="itens-list">
     <div class="server-status">
-      <p>Server Status:  {{ serverStatus }}</p>
+      <p>Server Status: {{ serverStatus }}</p>
 
       <button (click)="checkServerStatus()">Refresh</button>
     </div>
     <div class="card-section">
       <div class="item-card" *ngFor="let post of postsList">
-        <p>Title: {{ post.title }}</p>
-        <p>Description: {{ post.description }}</p>
+        <li>Title:</li>
+        <p>
+          {{ post.title }}
+        </p>
+        <li>Description:</li>
+        <p>{{ post.description }}</p>
       </div>
     </div>
   </div>

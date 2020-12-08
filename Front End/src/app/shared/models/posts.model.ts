@@ -3,8 +3,9 @@ import { Adapter } from 'src/app/core/services/adapter';
 
 export class Posts {
   constructor(
-    private title: string,
-    private description: string
+    public id: string,
+    public title: string,
+    public description: string
   ) {}
 }
 
@@ -14,6 +15,7 @@ export class Posts {
 export class PostsAdapter implements Adapter<Posts> {
   adapt(item: any): Posts {
     return new Posts(
+      item._id,
       item.title,
       item.description
     );

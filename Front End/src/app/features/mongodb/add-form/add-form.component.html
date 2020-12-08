@@ -1,0 +1,13 @@
+<form [formGroup]="addForm" (submit)="upload($event)">
+  <label [formGroup]="addForm">
+    Title
+    <input formControlName="title" />
+  </label>
+  <label [formGroup]="addForm">
+    Description
+    <input formControlName="description" />
+  </label>
+
+  <button type="submit">Send</button>
+  <button (click)="clearButton($event)">Clear</button>
+</form>
