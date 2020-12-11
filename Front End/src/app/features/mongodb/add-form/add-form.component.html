@@ -1,13 +1,19 @@
 <form [formGroup]="addForm" (submit)="upload($event)">
-  <label [formGroup]="addForm">
-    Title
-    <input formControlName="title" />
-  </label>
-  <label [formGroup]="addForm">
-    Description
-    <input formControlName="description" />
-  </label>
-
-  <button type="submit">Send</button>
-  <button (click)="clearButton($event)">Clear</button>
+  <div class="form-header">
+    <p>Adicionar Post</p>
+  </div>
+  <div class="form-body">
+    <label [formGroup]="addForm">
+      <p>Title</p>
+      <input formControlName="title" />
+    </label>
+    <label [formGroup]="addForm">
+      <p>Description</p>
+      <input formControlName="description" />
+    </label>
+  </div>
+  <div class="form-footer">
+    <button (click)="clearButton($event)">Clear</button>
+    <button type="submit" class="send-button"><span>Send</span></button>
+  </div>
 </form>

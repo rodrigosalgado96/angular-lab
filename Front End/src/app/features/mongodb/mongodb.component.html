@@ -12,11 +12,25 @@
   </div>
   <div class="itens-list">
     <div class="server-status">
-      <p>Server Status: {{ serverStatus }}</p>
+      <div class="legend">
+        <p>Server Status:</p>
+        <span
+          class="dot"
+          [ngClass]="{
+            'dot-green': serverStatus === true,
+            'dot-red': serverStatus === false
+          }"
+        ></span>
+      </div>
 
-      <button (click)="checkServerStatus()">Refresh</button>
+      <button class="refresh" (click)="checkServerStatus()">
+        <img src="../../../assets/icons/refresh-white-24dp.svg" />
+      </button>
     </div>
     <div class="card-section">
+      <div class="message" *ngIf="emptyPostsMessage">
+        <p>Sem Posts disponíveis</p>
+      </div>
       <div class="item-card" *ngFor="let post of postsList">
         <li>Title:</li>
         <p>

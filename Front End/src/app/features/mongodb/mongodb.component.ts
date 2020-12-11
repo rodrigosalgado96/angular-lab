@@ -11,8 +11,8 @@ import { MongoDBService } from "../services/mongodb.service";
   styleUrls: ["./mongodb.component.scss"],
 })
 export class MongodbComponent implements OnInit, OnDestroy {
-  serverStatus: boolean;
-  emptyPostsMessage: boolean;
+  serverStatus: boolean = false;
+  emptyPostsMessage: boolean = true;
 
   postsRefresh: Subscription;
 
