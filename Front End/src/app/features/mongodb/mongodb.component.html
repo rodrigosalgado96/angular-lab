@@ -1,0 +1,44 @@
+<div class="background">
+  <div class="control">
+    <div class="add">
+      <app-add-form></app-add-form>
+    </div>
+    <div class="update">
+      <app-edit-form [posts]="postsList"></app-edit-form>
+    </div>
+    <div class="delete">
+      <app-delete-form [posts]="postsList"></app-delete-form>
+    </div>
+  </div>
+  <div class="itens-list">
+    <div class="server-status">
+      <div class="legend">
+        <p>Server Status:</p>
+        <span
+          class="dot"
+          [ngClass]="{
+            'dot-green': serverStatus === true,
+            'dot-red': serverStatus === false
+          }"
+        ></span>
+      </div>
+
+      <button class="refresh" (click)="checkServerStatus()">
+        <img src="../../../assets/icons/refresh-white-24dp.svg" />
+      </button>
+    </div>
+    <div class="card-section">
+      <div class="message" *ngIf="emptyPostsMessage">
+        <p>Sem Posts disponíveis</p>
+      </div>
+      <div class="item-card" *ngFor="let post of postsList">
+        <li>Title:</li>
+        <p>
+          {{ post.title }}
+        </p>
+        <li>Description:</li>
+        <p>{{ post.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

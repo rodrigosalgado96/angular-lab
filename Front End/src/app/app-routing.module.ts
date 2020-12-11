@@ -5,6 +5,7 @@ import { ChartComponent } from "./features/chart/chart.component";
 import { DragAndDropComponent } from "./features/drag-and-drop/drag-and-drop.component";
 import { MqttComponent } from "./features/mqtt/mqtt.component";
 import { MockupsComponent } from "./features/mockups/mockups.component";
+import { MongodbComponent } from './features/mongodb/mongodb.component';
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "mock" },
@@ -27,6 +28,11 @@ const routes: Routes = [
     path: "mock",
     component: MockupsComponent,
     data: { animation: "MockupsPage" },
+  },
+  {
+    path: "mongodb",
+    component: MongodbComponent,
+    data: { animation: "MongoDBPage" },
   },
 ];
 

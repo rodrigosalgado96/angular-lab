@@ -1,0 +1,19 @@
+<form>
+  <div class="form-header">
+    <p>Deletar Post</p>
+  </div>
+  <div class="form-body">
+    <label>
+      <p>Post</p>
+      <select (change)="selectId($event.target.value)">
+        <option></option>
+        <option *ngFor="let post of posts" [value]="post.id">
+          {{ post.title }}
+        </option>
+      </select>
+    </label>
+  </div>
+  <div class="form-footer">
+    <button (click)="delete()">Delete</button>
+  </div>
+</form>

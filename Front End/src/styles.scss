@@ -196,13 +196,14 @@ table {
   box-sizing: border-box;
 }
 
-:focus {
-  outline: 2px solid orange;
+button:focus {
+  outline: none;
 }
 
 dd-view,
 chart-view,
 app-mqtt,
+app-mongodb,
 app-header,
 app-footer {
   width: 100%;
