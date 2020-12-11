@@ -17,7 +17,7 @@ app.use("/posts", postsRoute);
 app.get("/", async (req, res) => {
   try {
     const connect = await res.send({status: "online"});
-    res.json(connect);
+    // res.json(connect);
   } catch (err) {
     res.json({ message: err });
   }

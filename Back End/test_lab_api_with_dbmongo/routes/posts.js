@@ -14,25 +14,25 @@ router.get("/", async (req, res) => {
 
 //Submit a new post
 router.post("/", (req, res) => {
-  if(!req.body.title || req.body.title.length < 3){
+  if (!req.body.title || req.body.title.length < 3) {
     //400 bad request
     res.status(400).send("At least 3 Characters");
     return;
-  }
-
-  const post = new Post({
-    title: req.body.title,
-    description: req.body.description,
-  });
-
-  post
-    .save()
-    .then((data) => {
-      res.status(200).json(data);
-    })
-    .catch((err) => {
-      res.status(500).json({ message: err });
+  } else {
+    const post = new Post({
+      title: req.body.title,
+      description: req.body.description,
     });
+
+    post
+      .save()
+      .then((data) => {
+        res.status(200).json(data);
+      })
+      .catch((err) => {
+        res.status(500).json({ message: err });
+      });
+  }
 });
 
 //Specific Post
