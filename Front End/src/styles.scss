@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,13 +19,15 @@ $telegramBot-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$telegramBot-theme: mat-light-theme((
-  color: (
-    primary: $telegramBot-primary,
-    accent: $telegramBot-accent,
-    warn: $telegramBot-warn,
+$telegramBot-theme: mat-light-theme(
+  (
+    color: (
+      primary: $telegramBot-primary,
+      accent: $telegramBot-accent,
+      warn: $telegramBot-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -51,8 +52,7 @@ $telegramBot-theme: mat-light-theme((
 
 @font-face {
   font-family: rumble;
-  src: url(assets/fonts/rumble/RumblesportathleticcapsBold-ZxDJ.otf)
-    format("opentype");
+  src: url(assets/fonts/rumble/RumblesportathleticcapsBold-ZxDJ.otf) format("opentype");
 }
 
 @font-face {
@@ -200,6 +200,7 @@ button:focus {
   outline: none;
 }
 
+/**********************features*************************/
 dd-view,
 chart-view,
 app-mqtt,
@@ -209,6 +210,14 @@ app-footer {
   width: 100%;
   height: 100%;
 }
+
+
+/**********************shared*************************/
+app-slides-show {
+  width: 100%;
+  height: 100%;
+}
+
 
 /***********************************************NG2-DRAGULA********************************************/
 

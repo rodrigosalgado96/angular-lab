@@ -1,0 +1,7 @@
+<div class="content-box">
+    <label [formGroup]="form">
+        <span>{{ label }}</span>
+        <input type="number" [placeholder]="holder" [formControlName]="formId" />
+    </label>
+    <div class="warning" [@fadeInOut]=" validator ? 'valid' : 'invalid'"><span>X</span></div>
+</div>

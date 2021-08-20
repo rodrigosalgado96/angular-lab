@@ -113,3 +113,21 @@ export const slideImageAnimation = trigger("inOutImg", [
     query(":enter", animateChild(), { optional: true }),
   ]),
 ]);
+
+export const validatorInOut = trigger("fadeInOut", [
+  state(
+    "valid",
+    style({
+      //Show
+      left: '-5px'
+    })
+  ),
+  state(
+    "invalid",
+    style({
+      //Hide
+      left: '-45px'
+    })
+  ),
+  transition("valid <=> invalid", [animate(250)]),
+])

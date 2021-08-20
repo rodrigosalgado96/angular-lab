@@ -1,0 +1,13 @@
+<div class="drop-menu">
+    <button class="primary-button" (click)="toggleActionMenu()" [@dropMenu]="actionMenu ? 'spinIn' : 'spinOut'">
+        <img src="assets/icons/menu.svg" />
+    </button>
+
+    <div [@dropMenu]="actionMenu ? 'open' : 'closed'" class="dropdown-content">
+        <div class="buttons" *ngFor="let button of buttonsList">
+            <button class="drop-button" (click)="toggleActionMenu()">
+                {{ button.content }}
+            </button>
+        </div>
+    </div>
+</div>

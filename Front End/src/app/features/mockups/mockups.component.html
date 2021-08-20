@@ -1,84 +1,30 @@
-<div class="background" id="test">
+<div class="background" id="dragArea">
   <div class="row-wb body-row">
-    <div class="slides" cdkDrag cdkDragBoundary="#test">
-      <drag-handler></drag-handler>
-      <div class="showcase">
-        <img [src]="slides[index].link" [alt]="slides[index].alt" />
-        <div class="selectors">
-          <div
-            class="selector"
-            *ngFor="let selector of slides"
-            (click)="chooseSlide(selector.id)"
-          >
-            <div
-              class="selected"
-              *ngIf="selector.id === activeId"
-              [@inOutSelect]
-            ></div>
-          </div>
-        </div>
+    <div class="slides">
+      <app-slides-show [slides]="slides"></app-slides-show>
+    </div>
+
+    <div class="form-test" cdkDrag cdkDragBoundary="#dragArea">
+      <app-input-text [form]="form" formId="name" label="Name" holder="First Name"
+        [validator]="form.get('name').errors?.required && form.get('name').touched"></app-input-text>
+      <app-input-text [form]="form" formId="lastName" label="Name" holder="Last Name"
+        [validator]="form.get('lastName').errors?.required && form.get('lastName').touched"></app-input-text>
+      <app-input-text [form]="form" formId="email" label="Name" holder="example@example.com"
+        [validator]="form.get('email').errors?.required && form.get('email').touched"></app-input-text>
+      <app-input-text [form]="form" formId="phone" label="Phone Number" holder="(99) 9999999"
+        [validator]="(form.get('phone').errors?.required || form.get('phone').errors?.pattern) && form.get('phone').touched">
+      </app-input-text>
+      <div class="form-footer">
+        <app-form-button label="cancel" (click)="cancel()"></app-form-button>
+        <app-form-button label="submit" (click)="submit()"></app-form-button>
       </div>
-    </div>
-
-    <div class="form-test" cdkDrag cdkDragBoundary="#test">
-      <label>
-        <p>Name</p>
-        <input type="text" placeholder="John" />
-      </label>
-
-      <label>
-        <p>Last Name</p>
-        <input type="text" placeholder="Doe" />
-      </label>
-
-      <label>
-        <p>Email</p>
-        <input type="text" placeholder="john_doe@comau.com" />
-      </label>
-
-      <label>
-        <p>Phone Number</p>
-        <input type="text" placeholder="(99) 9999999" />
-      </label>
-    </div>
-
-    <div class="Angular-Class">
-      <form [formGroup]="form" (ngSubmit)="submit()">
-        <app-yes-no-button-group
-          [appDisableControl]="false"
-          formControlName="yesNoAnswer"
-          label="Are you good enough in Angular?"
-        >
-        </app-yes-no-button-group>
-        <button>Submit</button>
-      </form>
     </div>
   </div>
 
   <div class="row-wb footer-row">
-    <div class="example-box" cdkDrag cdkDragBoundary="#test">Drag me.</div>
-    <div class="button-card" cdkDrag cdkDragBoundary="#test">
-      <drag-handler></drag-handler>
-      <div class="drop-menu">
-        <button
-          class="primary-button"
-          (click)="toggleActionMenu()"
-          [@dropMenu]="actionMenu ? 'spinIn' : 'spinOut'"
-        >
-          <img src="assets/icons/menu.svg" />
-        </button>
+    <div class="example-box" cdkDrag cdkDragBoundary="#dragArea">Drag me.</div>
 
-        <div
-          [@dropMenu]="actionMenu ? 'open' : 'closed'"
-          class="dropdown-content"
-        >
-          <div class="buttons" *ngFor="let button of buttonsList">
-            <button class="drop-button">
-              {{ button.content }}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-dropdown-button [buttonsList]="buttonsList"></app-dropdown-button>
+
   </div>
 </div>

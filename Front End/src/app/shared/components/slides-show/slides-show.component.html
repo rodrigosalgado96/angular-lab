@@ -1,1 +1,8 @@
-<p>slides-show works!</p>
+<div class="showcase">
+    <img [src]="slidesWithId[index].link" [alt]="slidesWithId[index].alt" />
+    <div class="selectors">
+        <div class="selector" *ngFor="let selector of slidesWithId" (click)="chooseSlide(selector.id)">
+            <div class="selected" *ngIf="selector.id === activeId" [@inOutSelect]></div>
+        </div>
+    </div>
+</div>

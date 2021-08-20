@@ -8,6 +8,7 @@ import { SlidesShowComponent } from './slides-show.component';
   declarations: [SlidesShowComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [SlidesShowComponent]
 })
 export class SlidesShowModule { }
