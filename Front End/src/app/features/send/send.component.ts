@@ -55,10 +55,6 @@ export class SendComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // Telegram.setToken("1330320176:AAE_YOn26fn4H5GQr5FnE4zD-DhjDNj5bNQ");
-    // Telegram.setRecipient("-466831592");
-
-
     this.bot.onText(/\/comandos/, (msg) => {
       const chatId = msg.chat.id;
       const who = msg.from.first_name;
@@ -111,8 +107,6 @@ export class SendComponent implements OnInit {
     if (message !== "") {
       setTimeout(() => (this.answer = message), 0);
       this.bot.sendMessage(this.chatId, message);
-      // Telegram.setMessage(message);
-      // Telegram.send();
     }
   }
 }

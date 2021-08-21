@@ -1,6 +1,6 @@
 p {
   margin: 0;
-  color: white;
+  color: var(--primary-font-color);
 }
 
 form {
@@ -60,7 +60,7 @@ button{
   height: 30px;
   margin-left: 10px;
 
-  color: white;
+  color: var(--primary-font-color);
   background-color: var(--quaternary-font-color);
   box-shadow: 0px 6px #00000033;
   border-radius: 10px;

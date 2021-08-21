@@ -15,15 +15,6 @@ import { MqttService, IMqttMessage } from "ngx-mqtt";
 })
 export class MqttComponent implements OnInit, OnDestroy {
   /*
-   available variables:
-     -current_level;
-     -temperature_level;
-
-  hostname: '172.25.90.83', Caio
-  hostname: '172.25.87.113', Allan
-
-  port: 1883,
-
     example: https://medium.com/@anant.lalchandani/dead-simple-mqtt-example-over-websockets-in-angular-b9fd5ff17b8e
   */
 

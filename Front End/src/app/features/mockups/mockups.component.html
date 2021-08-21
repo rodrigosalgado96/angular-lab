@@ -7,9 +7,9 @@
     <div class="form-test" cdkDrag cdkDragBoundary="#dragArea">
       <app-input-text [form]="form" formId="name" label="Name" holder="First Name"
         [validator]="form.get('name').errors?.required && form.get('name').touched"></app-input-text>
-      <app-input-text [form]="form" formId="lastName" label="Name" holder="Last Name"
+      <app-input-text [form]="form" formId="lastName" label="Last Name" holder="Last Name"
         [validator]="form.get('lastName').errors?.required && form.get('lastName').touched"></app-input-text>
-      <app-input-text [form]="form" formId="email" label="Name" holder="example@example.com"
+      <app-input-text [form]="form" formId="email" label="Email" holder="example@example.com"
         [validator]="form.get('email').errors?.required && form.get('email').touched"></app-input-text>
       <app-input-text [form]="form" formId="phone" label="Phone Number" holder="(99) 9999999"
         [validator]="(form.get('phone').errors?.required || form.get('phone').errors?.pattern) && form.get('phone').touched">

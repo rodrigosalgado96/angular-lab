@@ -1,9 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-
-// import { MAINTENANCE_ORDER } from "src/app/shared/model/om.model";
-import { ManusisService } from "../services/manusis.service";
 import Telegram from "telegram-send-message";
-import { error } from "console";
 
 @Component({
   selector: "chart-view",
@@ -20,20 +16,6 @@ export class ChartComponent implements OnInit {
   legendManual = true;
 
   notifyTelegram: boolean = false;
-  genOm: boolean = false;
-
-  // om: MAINTENANCE_ORDER = {
-  om: any = {
-    area_id: 23, //Test Area
-    first_loc_id: 4787, // Test Location
-    maint_service_type_id: 1,
-    maint_service_nature_id: null,
-    priority: 1,
-    description: "",
-    opened_at: new Date(),
-    scheduled_to: new Date(),
-    est_finish_at: new Date(),
-  };
 
   public barChartOptions = {
     responsive: true,
@@ -161,7 +143,7 @@ export class ChartComponent implements OnInit {
     { x: "OP80[A]", y: 29, z: "Automatico", count: 0 },
   ];
 
-  constructor(private omService: ManusisService) {}
+  constructor() {}
 
   ngOnInit() {
     this.hoverBackgroundColor(this.mockedDataOne);
@@ -206,28 +188,13 @@ export class ChartComponent implements OnInit {
         Math.round(this.mockedDataOne[random].y) +
         "</b></u> segundos.";
       Telegram.setMessage(message);
-      this.om.description = message;
       if (this.notifyTelegram)
         setTimeout(() => {
           Telegram.send();
-        }, 1000); // 1segundo
-      if (this.genOm)
-        setTimeout(() => {
-          // this.postOm(this.om); // comentado para nao criar ordem de serviço
-        }, 1000); // 1segundo
-    }, 10000); //10 segundos
+        }, 1000); 
+    }, 10000); 
     //--------------------------------------
   }
-
-  //Manussis-----------------------------------------------
-  // private postOm(om: MAINTENANCE_ORDER) {
-  private postOm(om: any) {
-    this.omService.postOm(om).subscribe(
-      () => console.log("você não é o goku, mas deu certo"),
-      (err) => console.log(err.error.errors)
-    );
-  }
-  //-----------------------------------------------
 
   //Chart-----------------------------------------------
   legendAutomaticoToggle() {

@@ -16,10 +16,10 @@
 
     border-radius: 100px;
     border: none;
-    box-shadow: 5px 3px 4px #00000033;
-    background: rgba(30, 51, 113, 1);
+    // box-shadow: 5px 3px 4px #00000033;
+    background: var(--secondary-color);
 
-    color: #ffffff;
+    color: var(--primary-font-color);
     text-decoration: none;
     cursor: pointer;
 
@@ -49,9 +49,9 @@
     height: 45px;
     width: 45px;
     margin-bottom: 4%;
-    color: #ffffff;
+    color: var(--primary-font-color);
 
-    background: rgba(30, 51, 113, 1);
+    background: var(--secondary-color);
     box-shadow: 0px 4px 5px #00000033;
     text-decoration: none;
     cursor: pointer;

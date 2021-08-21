@@ -8,7 +8,7 @@
 
   padding: 1%;
 
-  background-color: #1e3371;
+  background-color: var(--secondary-color);
 }
 
 .border-mine{
@@ -20,5 +20,5 @@
   border: 2px solid #ef8e19;
   border-radius: 10px;
 
-  color: white;
+  color: var(--primary-font-color);
 }
