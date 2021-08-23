@@ -1,23 +1,23 @@
 # Angular-Lab
 
-## Objective
+## Goal
 Apply new knowledge and skills in Angular, with different techniques and libraries
 
 ## Components
 ### Chart
-- A chart used to show data and the possibility to send infos about it with a Telegram BOT, used Chart Js and a random data generator script;
+- A chart used to show data and optionally send alarms and info with a trigger, using a Telegram BOT, Chart Js and a data source;
 
 ### Mqtt
-- With a help from NGX-Mqtt, here has a form to send info to a broker and a blank space to show what we received from broker;
+- With help from NGX-Mqtt, there is a form to send info to a broker and a text box to show what is received from it;
 
 ### Drag And Drop
-- Just an example how to work with drag and drop with NG2-Dragula;
+- Feature used as an example on how to work with drag and drop by using NG2-Dragula;
 
 ### Mockups
-- Here I develop and test new shared components and try to apply different techniques and skills;
+- Draft to develop and test new shared components and try to apply different techniques and skills;
 
 ### Mongo DB
-- I created an RESTful API with Node.Js and with a database, I use this page with this API to access and modify every data from database;
+- There is a RESTful API with Node.Js and a database in which I use this page to access it and manipulate data;
 
 *API removed for fixes and updates, coming back soon
 
