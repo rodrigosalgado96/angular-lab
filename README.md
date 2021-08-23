@@ -17,7 +17,7 @@ Apply new knowledge and skills in Angular, with different techniques and librari
 - Here I develop and test new shared components and try to apply different techniques and skills;
 
 ### Mongo DB
-- I created an RESTFULL API with Node.Js and with a database, I use this page with this API to access and modify every data from database;
+- I created an RESTful API with Node.Js and with a database, I use this page with this API to access and modify every data from database;
 
 *API removed for fixes and updates, coming back soon
 
